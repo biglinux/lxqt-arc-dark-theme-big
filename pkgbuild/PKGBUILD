@@ -1,0 +1,22 @@
+pkgname=lxqt-arc-dark-theme-git
+pkgver=$(date +%y.%m.%d)
+pkgrel=$(date +%H%M)
+pkgdesc="A dark theme for LXQt based on Arc"
+arch=('any')
+url="https://github.com/biglinux/lxqt-arc-dark-theme-big"
+license=('GPL')
+optdepends=('kvantum-theme-arc: recommended kvantum style'
+'arc-gtk-theme: GTK theme')
+_theme='arc-dark'
+_repo='lxqt-arc-dark-theme'
+source=("git+${url}.git")
+md5sums=('SKIP')
+
+pkgver() {
+  echo "$(git -C "${srcdir}/${_repo}" rev-list --count HEAD)"
+}
+
+package() {
+  install -d "${pkgdir}"/usr/share/lxqt/themes/"${_theme}"
+  cp -r "${srcdir}/${_repo}/${_theme}"/* "${pkgdir}"/usr/share/lxqt/themes/"${_theme}"/ --preserve=mode
+}
