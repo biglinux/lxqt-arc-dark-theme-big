@@ -8,7 +8,7 @@ license=('GPL')
 optdepends=('kvantum-theme-arc-big: recommended kvantum style'
 'arc-gtk-theme: GTK theme')
 _theme='arc-dark'
-_repo='lxqt-arc-dark-theme'
+_repo='lxqt-arc-dark-theme-big'
 source=("git+${url}.git")
 md5sums=('SKIP')
 
